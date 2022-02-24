@@ -10,3 +10,31 @@ http://localhost:8081/kafka/publish/user
     "salary" : 1000.0
 
 }
+
+
+Start zoo keeper
+====================
+open command prompt
+cd D:\kafka_2.12-2.8.1
+.\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
+
+Start Kafka server
+=====================
+open command prompt
+cd D:\kafka_2.12-2.8.1
+.\bin\windows\kafka-server-start.bat  .\config\server.properties
+
+
+create topic
+.\bin\windows\kafka-topics.bat --create --topic "kafka.example" --partitions 1 --replication-factor 1 --bootstrap-server localhost:9092
+
+
+Push message in topic
+==========================
+.\bin\windows\kafka-console-producer.bat --topic "kafka.example" --bootstrap-server localhost:9092
+
+read from same topic by consumer
+====================================
+
+.\bin\windows\kafka-console-consumer.bat --topic "kafka.example" --bootstrap-server localhost:9092 --from-beginning
+

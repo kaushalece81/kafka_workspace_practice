@@ -65,6 +65,11 @@ place data folder in kafka installation directory
 
 .\bin\windows\kafka-console-producer.bat --topic test --broker-list localhost:9092 < .\data\sample2.csv
 
+
+Push message in topic
+==========================
+.\bin\windows\kafka-console-producer.bat --topic "kafka.example" --bootstrap-server localhost:9092
+
 read from same topic by consumer
 ====================================
 .\bin\windows\kafka-console-consumer.bat --topic test --bootstrap-server localhost:9092 --from-beginning
