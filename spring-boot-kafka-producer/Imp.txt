@@ -1,0 +1,12 @@
+GET
+http://localhost:8081/kafka/publish/HelloKaushal
+
+POST
+http://localhost:8081/kafka/publish/user
+{
+    "id" : 1,
+    "name" : "Kaushal",
+    "dept" : "sentient",
+    "salary" : 1000.0
+
+}
