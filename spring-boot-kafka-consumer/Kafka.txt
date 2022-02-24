@@ -1,0 +1,84 @@
+https://www.onlinetutorialspoint.com/kafka/install-apache-kafka-on-windows-10.html
+
+https://www.youtube.com/watch?v=EUzH9khPYgs
+
+https://kafka.apache.org/
+download Kafka button
+download (2.13 is recommended)  access denied issue 
+Error
+
+[2021-12-24 15:55:47,474] ERROR Error while writing to checkpoint file D:\kafka\kafka-logs\log-start-offset-checkpoint (kafka.server.LogDirFailureChannel)
+java.nio.file.AccessDeniedException: C:\kafka\kafka-logs
+
+Hence download 2.8.1
+Scala 2.12  - kafka_2.12-2.8.1.tgz (asc, sha512)
+
+
+
+
+extract the file 
+copy the folder to D:\kafka_2.12-2.8.1
+D:\kafka_2.12-2.8.1\bin\windows
+
+
+config changes for single node kafka broker
+================================================
+D:\kafka_2.12-2.8.1\config
+
+server.properties
+change 
+log.dirs=/tmp/kafka-logs
+To
+log.dirs=D:/kafka_2.12-2.8.1/kafka-logs
+
+zookeeper.properties
+change
+dataDir=/tmp/zookeeper
+To
+dataDir=D:/kafka_2.12-2.8.1/zookeeper-data
+
+Start zoo keeper
+====================
+open command prompt
+cd D:\kafka_2.12-2.8.1
+.\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
+
+
+Start Kafka server
+=====================
+open command prompt
+cd D:\kafka_2.12-2.8.1
+.\bin\windows\kafka-server-start.bat  .\config\server.properties
+
+Create Topics
+===============
+.\bin\windows\kafka-topics.bat --create --topic test --partitions 1 --replication-factor 1 --bootstrap-server localhost:9092
+
+.\bin\windows\kafka-topics.bat --create --topic "kafka.example" --partitions 1 --replication-factor 1 --bootstrap-server localhost:9092
+
+.\bin\windows\kafka-topics.bat --create --topic "abc.*.example" --partitions 1 --replication-factor 1 --bootstrap-server localhost:9092
+.\bin\windows\kafka-topics.bat --create --topic "abc.example.#" --partitions 1 --replication-factor 1 --bootstrap-server localhost:9092
+
+place data folder in kafka installation directory
+=====================================================
+.\bin\windows\kafka-console-producer.bat --topic test --broker-list localhost:9092 < .\data\sample1.csv
+
+.\bin\windows\kafka-console-producer.bat --topic test --broker-list localhost:9092 < .\data\sample2.csv
+
+read from same topic by consumer
+====================================
+.\bin\windows\kafka-console-consumer.bat --topic test --bootstrap-server localhost:9092 --from-beginning
+
+.\bin\windows\kafka-console-consumer.bat --topic "kafka.example" --bootstrap-server localhost:9092 --from-beginning
+
+set environment variable in cmd
+
+setx KAFKA_HOME D:\kafka_2.12-2.8.1
+
+
+ADD PLUGIN IN Intellij idea settings --> Batch Script Support
+
+
+
+
+

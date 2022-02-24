@@ -16,9 +16,9 @@ import com.example.kafka.springbootkafkaproducer.entity.User;
 
 
 
-//@Configuration
+@Configuration
 public class KafkaConfiguration {
-
+	
 	@Bean
 	public ProducerFactory<String, User> producerFactory() {
 		
