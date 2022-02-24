@@ -1,0 +1,116 @@
+{
+	"info": {
+		"_postman_id": "017b22eb-0d3c-4db9-804b-9dde86bf78a4",
+		"name": "KafkaCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "PublishStringMessage",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/kafka/publish/HelloKaushal",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"kafka",
+						"publish",
+						"HelloKaushal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PublishJsonMessage",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\" : 1,\r\n    \"name\" : \"Kaushal\",\r\n    \"dept\" : \"sentient\",\r\n    \"salary\" : 1000.0\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/kafka/publish/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"kafka",
+						"publish",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PublishJsonMessageBaseURL",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\" : 1,\r\n    \"name\" : \"Kaushal\",\r\n    \"dept\" : \"sentient\",\r\n    \"salary\" : 1000.0\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/kafka/publish/user",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"kafka",
+						"publish",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PublishJsonMessageBaseURL Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\" : 1,\r\n    \"name\" : \"Kaushal\",\r\n    \"dept\" : \"sentient\",\r\n    \"salary\" : 1000.0\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/kafka/publish/user",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"kafka",
+						"publish",
+						"user"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
